@@ -5,3 +5,4 @@ import './stars.js';
 import './harrypotter.js';
 import './starwarscharacter.js'
 import './swcharskeleton.js'
+import './starwarscharacteragain.js'

@@ -12,6 +12,7 @@ class StarWars extends LitElement{
     .crawl-parent{
         text-align: center;
         perspective: 1000px;
+        font-variant: small-caps;
     }
     .crawl-child{
         transform: rotateX(50deg);
@@ -65,6 +66,7 @@ class StarWars extends LitElement{
         </form>
         `
     }
+    // https://github.com/COMP2110-2023/weekly-workshops-camelCaseStyle.git
     characterTemplate(){
         console.log(this._data.characters)
         return html `

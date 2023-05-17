@@ -24,6 +24,10 @@ class StarWarsCharacter extends LitElement{
             .then(response => response.json())
             .then(data => this._data = data)
     }
+    update(){
+        this.getData()
+        super.update()
+    }
 
     render(){
         if(this._data){
