@@ -137,67 +137,54 @@ const allBooks = {
     ]
   };
 
-// a function to generate a display of all of the books
-// in an array
-const renderBooks = (bookArray) => {  
-  console.log(bookArray.books)
-  const content = document.getElementById("content")
-  let list = "<ul>";
-  bookArray.books.forEach(book => {
-    list += `<li><em>${book.title}</em> written by <em>${book.author}</em></li>`
-  });
-  list += "</ul>"
-  content.innerHTML = list
-};
-
-// an event handler for the control button
-document.getElementById('control').onclick = (event) => {
-    console.log('control button clicked');
-};
-const detailView = (bookArray) =>{
-  console.log(bookArray.books)
-  const content = document.getElementById("content")
-  let innerContent = '<div class="booksGrid">';
-  bookArray.books.forEach(book => {
-    innerContent += `<div class="book">
+// a function to generate a display of all of the books in an array
+const renderBooks = (bookArray, listView) => {
+  const content = document.getElementById("content");
+  let innerContent = '';
+  
+  if (listView) {
+    innerContent += '<ul class="myList">';
+    bookArray.books.forEach(book => {
+      innerContent += `<li><em>${book.title}</em> written by <em>${book.author}</em></li>`;
+    });
+    innerContent += '</ul>';
+  } else {
+    innerContent += '<div class="booksGrid">';
+    bookArray.books.forEach(book => {
+      innerContent += `<div class="book">
         <img src="${book.imageLink}"/>
         <div class="title">${book.title}</div>
         <em>by</em>
         <div class="author">${book.author}</div>
-        <a href ="${book.link}">More info</a>
-    </div>`
-  });
-  innerContent += "</div>"
-  content.innerHTML = innerContent
-}
-
-
-window.onload = () => {
-  document.getElementById("control").addEventListener('click', toggleView)
-  renderBooks(allBooks)
+        <a href="${book.link}">More info</a>
+      </div>`;
+    });
+    innerContent += '</div>';
+  }
+  
+  content.innerHTML = innerContent;
 };
 
-let currentView = "listView"
-function toggleView(){
-  switch(currentView){
-    case "listView":
-      // means that current view is listView
-      // so we toggle to detailView
-      detailView(allBooks)
-      currentView = "detailView"
-      break;
-    case "detailView":
-      renderBooks(allBooks)
-      currentView = "listView"
-      break;
-  }
-}
+// an event handler for the control button
+document.getElementById('control').onclick = (event) => {
+  toggleView();
+};
 
-//using fetch 
-let dataFromAPI = null
-fetch("books.json")
-.then(res => res.json())
-.then(data => {
-  dataFromAPI = data
-  console.log(dataFromAPI)
-})
+const toggleView = () => {
+  const controlButton = document.getElementById("control");
+  const listView = controlButton.dataset.view === "listView";
+  
+  if (listView) {
+    renderBooks(allBooks, false); // render as grid view
+    controlButton.dataset.view = "gridView";
+    controlButton.textContent = "Change to List View";
+  } else {
+    renderBooks(allBooks, true); // render as list view
+    controlButton.dataset.view = "listView";
+    controlButton.textContent = "Change to Grid View";
+  }
+};
+
+window.onload = () => {
+  toggleView(); // initial render as list view
+};

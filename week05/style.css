@@ -1,29 +1,34 @@
-body{
+body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.booksGrid{
+  }
+  
+  .booksGrid {
     margin-top: 10px;
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);
-}
-.title{
+  }
+  
+  .title {
     font-weight: bold;
-}
-.book{
+  }
+  
+  .book {
     border: 2px solid black;
-    border-radius: 10%;
+    border-radius: 10px;
     text-align: center;
     background-color: beige;
-}
-img{
+    padding: 10px; /* Added padding for better spacing */
+  }
+  
+  img {
     margin-top: 10px;
     border: 2px solid black;
     border-radius: 10px;
-    height: 70%;
-}
-
-.myList{
+    height: 200px; /* Increased the height of the images for better visibility */
+  }
+  
+  .myList {
     list-style-type: none;
-}
+  }
+  
