@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Bar</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="#">Unit COMP2110</a></div>
+            <div class="toggle"><i class="fas fa-bars"></i></div>
+            <ul class="menu">
+                <li class="item"><a href="#">Home</a></li>
+                <li class="item"><a href="#">About</a></li>
+                <li class="item has-submenu">
+                    <a tabindex="0">Modules</a>
+                    <ul class="submenu">
+                        <li class="subitem"><a href="#">Web</a></li>
+                        <li class="subitem"><a href="#">JavaScript</a></li>
+                        <li class="subitem"><a href="#">Design</a></li>
+                        <li class="subitem"><a href="#">Security</a></li>
+                    </ul>
+                </li>
+                <li class="item has-submenu">
+                    <a tabindex="0">Assignments</a>
+                    <ul class="submenu">
+                        <li class="subitem"><a href="#">Assignment 1</a></li>
+                        <li class="subitem"><a href="#">Assignment 2</a></li>
+                        <li class="subitem"><a href="#">Assignment 3</a></li>
+                    </ul>
+                </li>
+                <li class="item"><a href="#">GitHub</a></li>
+                <li class="item"><a href="#">Contact</a></li>
+                <li class="item button"><a href="#">Log In</a></li>
+                <li class="item button secondary"><a href="#">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
